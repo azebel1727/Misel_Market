@@ -10,23 +10,18 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import ArtItem
 
 # SHOWCASE: This is your Main Service Page
-def gallery_dashboard(request):
-    items = ArtItem.objects.all()
-    return render(request, 'dashboard.html', {'items': items})
-
-# UPLOAD: The "Manage" Action
 def upload_art(request):
     if request.method == 'POST':
         title = request.POST.get('title')
         artist = request.POST.get('artist')
         price = request.POST.get('price')
-        image_url = request.POST.get('image_url')
+        image_file = request.FILES.get('image_file') # Get the actual file
         
         ArtItem.objects.create(
             title=title, 
             artist_name=artist, 
             price=price, 
-            image_url=image_url
+            image=image_file # Save the file
         )
         return redirect('dashboard')
     return render(request, 'upload.html')
