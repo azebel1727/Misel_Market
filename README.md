@@ -33,3 +33,4 @@ This repository uses the following tags to mark baselines:
 
 ## Change Control
 All modifications follow the Change Request (CR) process defined in the SCMP. Refer to `/docs/SCMP_Plan.pdf` for the full change management workflow.
+# "Final SCM Audit completed on Jan 2, 2026."
